@@ -45,19 +45,20 @@ function finaliza (){
         let soma = 0;
         let media = 0
         for (let pos in valores){
-            soma += valores[pos]
             if (valores[pos] > maior)
                 maior = valores[pos]
             if (valores[pos] < menor)
                 menor = valores[pos]
         }
-        media = soma / valores.length
+        for (var sum = 0; sum < valores.length; sum++){
+            soma = soma + valores[sum];
+        }
     resultado.innerHTML = ''
     resultado.innerHTML += `Ao todo temos ${valores.length} numeros cadastrados. <br>
     O maior valor informado foi ${maior}. <br>
     O menor valor informado foi ${menor}. <br>
     Somando todos os valores, temos ${soma}.<br>
-    A média dos valores digitados é ${media}.`;
+    A média dos valores digitados é ${soma / valores.length}.`;
     }
 }
 
